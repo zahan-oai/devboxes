@@ -44,3 +44,12 @@ if ! command -v gh >/dev/null 2>&1; then
     sudo apt-get update
     sudo apt-get install -y gh
 fi
+
+# link AGENTS.md in the right place
+mkdir -p "$HOME/.codex"
+src="$DOTFILES_DIR/codex/AGENTS.md"
+target="$HOME/.codex/AGENTS.md"
+if ! ln -s "$src" "$target" 2>/dev/null; then
+    echo "Failed to symlink $src -> $target" >&2
+    exit 1
+fi
