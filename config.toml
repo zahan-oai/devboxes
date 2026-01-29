@@ -51,4 +51,4 @@
 [[git.clone]]
 repo = "https://github.com/zahan-oai/devboxes.git"
 target_dest = "code/devboxes"
-install_command = "dotfiles/setup.sh"
+install_command = "setup.sh"
