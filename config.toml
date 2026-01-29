@@ -1,0 +1,54 @@
+# Example configuration for Applied Devboxes.
+#
+# Use this as a basic and customize as desired. Place the configuration at:
+# ~/.config/applied-devbox/config.toml (on your laptop).
+
+### Custom setup ###
+#
+# Specifies a custom_setup_script. It will be executed after clone and
+# monorepo_bootstrap. The script will be executed as the devbox user in $HOME.
+# Must be a local path that is:
+#  * Executable (and includes appropriate #!)
+#  * Smaller than 20Kb
+
+# custom_setup_script  = "~/code/my-devbox-setup.sh"
+
+
+### Package installation ###
+
+# Will be installed with `apt install -y packages...` at pod start.
+# [apt]
+# install = [
+#   "ncdu",
+#   "socat",
+# ]
+
+### Port Forwarding ###
+# A mapping between local -> remote ports. These are the ports that will be opened during `applied devbox up`.
+# Example in the config.toml:
+# [port_mapping]
+# "10350" = "10350"
+# "8070" = "8070"
+
+### Additional Git repo cloning ###
+#
+# The monorepo is cloned automatically during bootstrap. If you want additional repos, such as for dotfiles or tools
+# add `git.clone` sections (one per repo).
+#
+# repo: Required. Can also be an HTTPS URL.
+# target_dest: Required. destination directory relative to ~/ on the Devbox.
+# identity_file: Optional. For non-openai repos, specify an SSH identity to use,
+#     relative to ~/ on the Devbox. Your local machine's Secretive public keys
+#     will be copied to .ssh/secretive/ on the Devbox. See go/secretive-non-oai.
+# install_command: Optional. Path (relative to target_dest) to a script to
+#     execute after all repos have been cloned, relative to
+# target_dest. E.g., this script might do things like
+#     `cp ~/code/dotfiles/.vimrc ~/.vimrc`.
+# refspec: Optional. If set, only fetches refs matching this refspec (see git-fetch docs).
+#     Can be a string or a list of strings. Example: "+refs/heads/dev*:refs/remotes/origin/dev*"
+#
+
+[[git.clone]]
+repo = "https://github.com/zahan-oai/devboxes.git"
+target_dest = "code/devboxes"
+install_command = "dotfiles/setup.sh"
