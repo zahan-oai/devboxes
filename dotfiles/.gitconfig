@@ -17,10 +17,12 @@
 [alias]
   st = status
   co = checkout
+  b = branch
   plus = commit -a --amend --no-edit
 
 [push]
   default = simple
+  autoSetupRemote = true
 
 [pull]
   ff = only
