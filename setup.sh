@@ -9,7 +9,7 @@ if [[ ! -d "$ZPREZTO_DIR" ]]; then
 fi
 
 # symlink dotfiles in this directory into $HOME
-DOTFILES_DIR="${0:A:h}"
+DOTFILES_DIR="${0:A:h}/dotfiles"
 for src in "$DOTFILES_DIR"/.*(N); do
   name="${src:t}"
   [[ "$name" == "." || "$name" == ".." ]] && continue
