@@ -17,6 +17,7 @@
 [alias]
   st = status
   co = checkout
+  plus = commit -a --amend --no-edit
 
 [push]
   default = simple
