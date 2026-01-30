@@ -42,3 +42,17 @@ git log master..HEAD
 git diff master..HEAD
 git show {rev}
 ```
+
+## Environment
+
+### Python packaging (oaipkg)
+
+To use the right virtualenv for python, you'll need to activate that venv before running python commands like `pytest`.
+
+Determine which module you're in - it's the directory that has a `pyproject.toml` file, walk up from the file or test in question till you hit one.
+
+```
+source $(applied pkg venv {package name})/bin/activate
+```
+
+This gives you a shell in that venv, and now you can run `pytest` as usual.
