@@ -1,6 +1,5 @@
 #!/usr/bin/env zsh
-set -euo
-setopt pipefail
+set -euo pipefail
 
 # install prezto (if needed)
 ZPREZTO_DIR="${ZDOTDIR:-$HOME}/.zprezto"
@@ -15,9 +14,9 @@ for src in "$DOTFILES_DIR"/.*(N); do
   [[ "$name" == "." || "$name" == ".." ]] && continue
 
   target="$HOME/$name"
-  # Ignore the "already exists" case (including existing symlinks)
+  # If it already exists, delete it and replace with the symlink.
   if [[ -e "$target" || -L "$target" ]]; then
-    continue
+    rm "$target"
   fi
 
   # Make the symlink
@@ -25,6 +24,7 @@ for src in "$DOTFILES_DIR"/.*(N); do
     echo "Failed to symlink $src -> $target" >&2
     exit 1
   fi
+  print -r -- "$src -> $target"
 done
 
 # install gh (if needed)
@@ -49,10 +49,14 @@ fi
 mkdir -p "$HOME/.codex"
 src="$DOTFILES_DIR/codex/AGENTS.md"
 target="$HOME/.codex/AGENTS.md"
+if [[ -e "$target" || -L "$target" ]]; then
+    rm "$target"
+fi
 if ! ln -s "$src" "$target" 2>/dev/null; then
     echo "Failed to symlink $src -> $target" >&2
     exit 1
 fi
+print -r -- "$src -> $target"
 
 # Set up the monorepo
 pushd "$HOME/code/openai/" >/dev/null
