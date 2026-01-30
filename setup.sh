@@ -53,3 +53,10 @@ if ! ln -s "$src" "$target" 2>/dev/null; then
     echo "Failed to symlink $src -> $target" >&2
     exit 1
 fi
+
+# Set up the monorepo
+pushd "$HOME/code/openai/" >/dev/null
+git config --unset-all remote.origin.fetch
+git config --add remote.origin.fetch 'refs/heads/master:refs/remotes/origin/master'
+git config --add remote.origin.fetch 'refs/heads/dev/zahan/*:refs/remotes/origin/dev/zahan/*'
+popd >/dev/null
