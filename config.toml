@@ -17,11 +17,10 @@
 ### Package installation ###
 
 # Will be installed with `apt install -y packages...` at pod start.
-# [apt]
-# install = [
-#   "ncdu",
-#   "socat",
-# ]
+[apt]
+install = [
+    "golang-go"
+]
 
 ### Port Forwarding ###
 # A mapping between local -> remote ports. These are the ports that will be opened during `applied devbox up`.

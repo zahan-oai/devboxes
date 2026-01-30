@@ -52,6 +52,12 @@ function() {
   pybase=$(python -m site --user-base)
   [[ -d "$pybase/bin" ]] && PATH="$PATH:$pybase/bin"
 
+  # golang
+  if command -v go >/dev/null 2>&1; then
+    gopath_bin="$(go env GOPATH)/bin"
+    [[ -d "$gopath_bin" ]] && PATH="$PATH:$gopath_bin"
+  fi
+
   # POWERLEVEL10K
   # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
   [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
