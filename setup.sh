@@ -51,6 +51,19 @@ if ! ln -fs "$src" "$link" 2>/dev/null; then
 fi
 print -r -- "$src -> $link"
 
+# Add codex config for full permissions if only if it's missing
+CONFIG="$HOME/.codex/config.toml"
+mkdir -p "$(dirname "$CONFIG")"
+touch "$CONFIG"
+
+grep -Eq '^[[:space:]]*sandbox_mode[[:space:]]*=' "$CONFIG" \
+  || printf '\nsandbox_mode = "danger-full-access"\n' >> "$CONFIG"
+
+grep -Eq '^[[:space:]]*approval_policy[[:space:]]*=' "$CONFIG" \
+  || printf 'approval_policy = "never"\n' >> "$CONFIG"
+
+print -r -- "Updated $CONFIG"
+
 # Set up the monorepo
 pushd "$HOME/code/openai/" >/dev/null
 git config --unset-all remote.origin.fetch
