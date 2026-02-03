@@ -13,18 +13,13 @@ for src in "$DOTFILES_DIR"/.*(N); do
   name="${src:t}"
   [[ "$name" == "." || "$name" == ".." ]] && continue
 
-  target="$HOME/$name"
-  # If it already exists, delete it and replace with the symlink.
-  if [[ -e "$target" || -L "$target" ]]; then
-    rm "$target"
-  fi
-
+  link="$HOME/$name"
   # Make the symlink
-  if ! ln -s "$src" "$target" 2>/dev/null; then
-    echo "Failed to symlink $src -> $target" >&2
+  if ! ln -fs "$src" "$link" 2>/dev/null; then
+    echo "Failed to symlink $src -> $link" >&2
     exit 1
   fi
-  print -r -- "$src -> $target"
+  print -r -- "$src -> $link"
 done
 
 # install gh (if needed)
@@ -48,15 +43,12 @@ fi
 # link AGENTS.md in the right place
 mkdir -p "$HOME/.codex"
 src="$DOTFILES_DIR/codex/AGENTS.md"
-target="$HOME/.codex/AGENTS.md"
-if [[ -e "$target" || -L "$target" ]]; then
-    rm "$target"
-fi
-if ! ln -s "$src" "$target" 2>/dev/null; then
-    echo "Failed to symlink $src -> $target" >&2
+link="$HOME/.codex/AGENTS.md"
+if ! ln -fs "$src" "$link" 2>/dev/null; then
+    echo "Failed to symlink $src -> $link" >&2
     exit 1
 fi
-print -r -- "$src -> $target"
+print -r -- "$src -> $link"
 
 # Set up the monorepo
 pushd "$HOME/code/openai/" >/dev/null
