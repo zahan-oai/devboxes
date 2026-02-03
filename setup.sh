@@ -42,7 +42,8 @@ fi
 
 # link AGENTS.md in the right place
 mkdir -p "$HOME/.codex"
-src="$DOTFILES_DIR/codex/AGENTS.md"
+CODEX_DIR="${0:A:h}/codex"
+src="$CODEX_DIR/AGENTS.md"
 link="$HOME/.codex/AGENTS.md"
 if ! ln -fs "$src" "$link" 2>/dev/null; then
     echo "Failed to symlink $src -> $link" >&2
