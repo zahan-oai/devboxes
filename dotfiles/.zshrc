@@ -65,6 +65,8 @@ function() {
   export LSCOLORS='GxFxCxDxBxegedabagaced'
   export EDITOR='vi'
 
+  alias codex-prime="codex --dangerously-bypass-approvals-and-sandbox"
+
   . "$HOME/.cargo/env"
 
 }
