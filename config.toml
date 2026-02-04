@@ -19,7 +19,8 @@
 # Will be installed with `apt install -y packages...` at pod start.
 [apt]
 install = [
-    "golang-go"
+    "gh",
+    "golang-go",
 ]
 
 ### Port Forwarding ###
