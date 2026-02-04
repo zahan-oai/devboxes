@@ -58,3 +58,7 @@ When you make python changes, typecheck it with `mypy`.
 ## Buildkite
 
 Once we make a PR, CI is run using Buildkite. You should have a MCP configured which let's you see the status for that PR, which jobs fail, logs for failures etc. Use this to fix issues with the code changes we made.
+
+## Github
+
+The `gh` CLI should be installed locally, use that to interact with Github. Primaily to work with PRs in this case: create, checkout, check status, view, etc.
