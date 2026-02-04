@@ -40,5 +40,11 @@ git config --add remote.origin.fetch 'refs/heads/master:refs/remotes/origin/mast
 git config --add remote.origin.fetch 'refs/heads/dev/zahan/*:refs/remotes/origin/dev/zahan/*'
 popd >/dev/null
 
+# set up MCP utils
+if ! command -v mcp-proxy >/dev/null 2>&1; then
+  echo "mcp-proxy not found, installing"
+  uv tool install mcp-proxy
+fi
+
 print -r -- "Setup complete, add your MCPs now: (see README)"
 print -r -- "Then you can run 'codex-prime' to start the Codex agent"
