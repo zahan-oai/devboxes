@@ -39,3 +39,7 @@ git config --unset-all remote.origin.fetch
 git config --add remote.origin.fetch 'refs/heads/master:refs/remotes/origin/master'
 git config --add remote.origin.fetch 'refs/heads/dev/zahan/*:refs/remotes/origin/dev/zahan/*'
 popd >/dev/null
+
+print -r -- "Setup complete, set up your MCPs now: (see README)"
+print -r -- "> codex mcp login buildkite"
+print -r -- "Then you can run 'codex-prime' to start the Codex agent"

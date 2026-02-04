@@ -54,3 +54,7 @@ bazel test //chatgpt/av-app-service:mypy
 For instance, this runs the `mypy` check for the `av-app-service`, located in `chatgpt/av-app-service`.
 
 When you make python changes, typecheck it with `mypy`.
+
+## Buildkite
+
+Once we make a PR, CI is run using Buildkite. You should have a MCP configured which let's you see the status for that PR, which jobs fail, logs for failures etc. Use this to fix issues with the code changes we made.
