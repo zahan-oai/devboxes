@@ -21,6 +21,7 @@ for file in "/home/dev-user/.openai/shrc"/*; do
 done
 
 . "$HOME/.local/bin/env"
+. "$HOME/.cargo/env"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
@@ -65,8 +66,7 @@ function() {
   export LSCOLORS='GxFxCxDxBxegedabagaced'
   export EDITOR='vi'
 
+  export OPENAI_USER="zahan"
   alias codex-prime="codex --dangerously-bypass-approvals-and-sandbox"
-
-  . "$HOME/.cargo/env"
 
 }

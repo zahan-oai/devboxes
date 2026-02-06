@@ -18,7 +18,7 @@ Make a short slug for {feature} that's likely to be unique
 ## Monorepo and Python Packaging (oaipkg)
 
 - If a project isn’t set up yet (e.g. `ModuleNotFoundError`), run `oaipkg install {pkg name}` to pull dependencies. Example: `oaipkg install oai_protection_client`
-- Monorepo has a magic "auto import" feature that will typically auto install any monorepo packages. Running python modules with `oaipkg run ` instead of `python -m ` will run these installs first and is recommended.
+- Monorepo has a magic "auto import" feature that will typically auto install any monorepo packages. Running python modules with `oaipkg run ` instead of `python -m ` will run these installs first and is recommended. But if that doesn't work, fall back to "oaipkg install {module name}". Do NOT use `pip`.
 - Monorepo is huge; rely on `rg` (ripgrep) for navigation: `rg "symbol" path/` is much faster than `grep`.
 - For quick file snippets: `sed -n 'start,endp' file`. Example: `sed -n '60,140p file.py'` shows specific sections—handy before editing.
 - Generally I will be working in only ONE MODULE in the repository at a time. You should not make edits to other projects in the same request unless it is clear that I wanted you to do so.
