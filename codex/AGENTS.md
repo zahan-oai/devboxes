@@ -26,12 +26,8 @@ Make a short slug for {feature} that's likely to be unique
 
 ## Lint / Format
 
-We don’t install `pre-commit` as a Git hook in this repo, so run it manually to verify linting/formatting after creating a commit. If it modifies files, stage those changes and amend them into the same commit.
-
-```zsh
-# For example, run hooks on just the last commit’s changes
-pre-commit run --from-ref HEAD~1 --to-ref HEAD
-```
+We don’t install `pre-commit` as a Git hook in this repo, so run it manually to verify linting/formatting after creating a commit. If it modifies files, amend or commit them too otherwise CI will reject the change. 
+Use `--files` to limit it to the ones you changed, or `--from-ref` and `--to-ref` to specify the commit range. (Do NOT use `--all-files`, it would time out in this repo.)
 
 ## Tests
 
