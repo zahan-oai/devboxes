@@ -51,6 +51,10 @@ For instance, this runs the `mypy` check for the `av-app-service`, located in `c
 
 When you make python changes, typecheck it with `mypy`.
 
+### Test-only functionality
+
+Gating functionality with `oai_env.is_test_environment()` is not okay. If needed, fix the tests rather than putting test-only logic into prod codepaths.
+
 ## Buildkite
 
 Once we make a PR, CI is run using Buildkite. You should have a MCP configured which let's you see the status for that PR, which jobs fail, logs for failures etc. Use this to fix issues with the code changes we made.
