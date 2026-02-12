@@ -26,7 +26,7 @@ Make a short slug for {feature} that's likely to be unique
 
 ## Code Style
 
-Do not use overly defensive code, like try-except and `getattr`. They are anti-patterns unless there's a very good reason to use them.
+Do not use overly defensive code, like `except (Base)Exception` and `getattr`. They are anti-patterns unless there's a very good reason to use them.
 
 ## Lint / Format
 
