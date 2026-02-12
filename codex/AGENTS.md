@@ -8,12 +8,20 @@ Before you start writing new code, make sure that you're on a clean commit, no c
 
 Then, if you're making adding to work that's already on that branch, great. Otherwise, make a new branch from master following the naming convention I outline later.
 
-Once you're done with the changes, commit them with a message like "codex: {concise summary}". I'll inspect, and ask you to push to origin / Github if needed.
+Once you're done with the changes, commit them with a message like "codex: {concise summary}". Then wait for me to tell you to push it upstream.
 
-## Branch name
+### Branch name
 
 Use this template: "dev/zahan/codex-{feature}"
 Make a short slug for {feature} that's likely to be unique
+
+### Terms
+
+I sometimes refer to origin/master as "upstream", because that's what that's basically what it is in the monorepo.
+
+### Updating the Branch
+
+If I ask you to merge upstream changes, do that separate from any other feature changes I ask you to make on the branch. Generally I like a clean merge commit, then other commits for feature changes.
 
 ## Monorepo and Python Packaging (oaipkg)
 
