@@ -45,11 +45,15 @@ This is the same module as in python packaging. This should be a superset of ind
 If `mypy` is set up in a module's `pyproject.toml`, then there will be a bazel target for it in the generated `BUILD` file.
 
 ```zsh
-bazel test //chatgpt/av-app-service:mypy
+applied bazel test //chatgpt/av-app-service:mypy
 ```
 For instance, this runs the `mypy` check for the `av-app-service`, located in `chatgpt/av-app-service`.
 
 When you make python changes, typecheck it with `mypy`.
+
+### Bazel
+
+Note that in my invocation above, I prefixed `bazel` with `applied`. That's because in the monorepo we do not manage `BUILD` files by hand generally, and with the prefix, we first regenerate those files before attempting to build / run a Bazel target.
 
 ### Test-only functionality
 
