@@ -23,6 +23,10 @@ I sometimes refer to origin/master as "upstream", because that's what that's bas
 
 If I ask you to merge upstream changes, do that separate from any other feature changes I ask you to make on the branch. Generally I like a clean merge commit, then other commits for feature changes.
 
+### Inheritance
+
+I prefer explicit type declarations (say a union type) over inheritance. Avoid inheritance unless the existing code needs it.
+
 ## Monorepo and Python Packaging (oaipkg)
 
 - If a project isn’t set up yet (e.g. `ModuleNotFoundError`), run `oaipkg install {pkg name}` to pull dependencies. Example: `oaipkg install oai_protection_client`
