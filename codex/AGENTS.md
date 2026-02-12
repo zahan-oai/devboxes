@@ -24,6 +24,10 @@ Make a short slug for {feature} that's likely to be unique
 - Generally I will be working in only ONE MODULE in the repository at a time. You should not make edits to other projects in the same request unless it is clear that I wanted you to do so.
 - To determine which module you're in, it's the directory that has a `pyproject.toml`; walk up from the file or test in question till you hit one.
 
+## Code Style
+
+Do not use overly defensive code, like try-except and `getattr`. They are anti-patterns unless there's a very good reason to use them.
+
 ## Lint / Format
 
 We don’t install `pre-commit` as a Git hook in this repo, so run it manually to verify linting/formatting after creating a commit. If it modifies files, amend or commit them too otherwise CI will reject the change. 
