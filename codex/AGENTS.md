@@ -77,7 +77,11 @@ Gating functionality with `oai_env.is_test_environment()` is not okay. If needed
 
 ## Buildkite
 
-Once we make a PR, CI is run using Buildkite. You should have a MCP configured which let's you see the status for that PR, which jobs fail, logs for failures etc. Use this to fix issues with the code changes we made.
+Once we make a PR, CI is run using Buildkite. You should have a MCP configured which let's you see the status for that PR, which jobs fail, logs for failures etc. Use this information to fix issues with the code changes we made.
+
+Once you push a PR up, monitor the Buildkite job. It's green if all tests pass. But soft-failures are fine: these are tests that are failing on master, or are non-deterministic.
+
+If the Buildkite MCP needs reauthentication, stop and let me know.
 
 ## Github
 
