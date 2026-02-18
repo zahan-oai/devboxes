@@ -75,6 +75,10 @@ Note that in my invocation above, I prefixed `bazel` with `applied`. That's beca
 
 Gating functionality with `oai_env.is_test_environment()` is not okay. If needed, fix the tests rather than putting test-only logic into prod codepaths.
 
+### Test Manager
+
+Tests that have been failing lately, or are flakey are "quarantined" by automation in CI. If you need to check the status of quarantined tests, try the quarantine-context skill. But if that doesn't work, just look at `az://appliedciblobdata/test-manager-data/labelstatuslist.json`
+
 ## Buildkite
 
 Once we make a PR, CI is run using Buildkite. You should have a MCP configured which let's you see the status for that PR, which jobs fail, logs for failures etc. Use this information to fix issues with the code changes we made.
