@@ -48,30 +48,31 @@ fi
 
 # set up MCPs
 mcps=$(codex mcp list --json | jq -r '.[].name')
-if grep -qF "ologs" <<< "$mcps"; then
+if ! grep -qF "ologs" <<< "$mcps"; then
   codex mcp add ologs -- mcp-proxy --transport streamablehttp "https://obs-mcp-default-internal.gateway.obs-1.internal.api.openai.org/ologs/mcp"
   print -r -- "Added OLogs MCP"
 fi
-if grep -qF "kepler" <<< "$mcps"; then
+if ! grep -qF "kepler" <<< "$mcps"; then
   codex mcp add kepler -- oaipkg run kepler_mcp.mcp.cli
   print -r -- "Added Kepler MCP"
 fi
-if grep -qF "nexus" <<< "$mcps"; then
+if ! grep -qF "nexus" <<< "$mcps"; then
   codex mcp add nexus --url https://nexus.gateway.deploy-0.internal.api.openai.org/api/v1/mcp
   print -r -- "Added Nexus MCP"
 fi
-if grep -qF "buildkite" <<< "$mcps"; then
+if ! grep -qF "buildkite" <<< "$mcps"; then
   codex mcp add buildkite --url https://mcp.buildkite.com/mcp
-  print -r -- "Added Buildkite MCP; run 'codex mcp login buildkite' to authenticate"
+  print -r -- "Added Buildkite MCP"
 fi
-if grep -qF "notion" <<< "$mcps"; then
+if ! grep -qF "notion" <<< "$mcps"; then
   codex mcp add notion --url https://mcp.notion.com/mcp
-  print -r -- "Added Notion MCP; run 'codex mcp login notion' to authenticate"
+  print -r -- "Added Notion MCP"
 fi
-if grep -qF "datadog" <<< "$mcps"; then
+if ! grep -qF "datadog" <<< "$mcps"; then
   codex mcp add datadog --url https://mcp.datadoghq.com/api/unstable/mcp-server/mcp
-  print -r -- "Added Datadog MCP; run 'codex mcp login datadog' to authenticate"
+  print -r -- "Added Datadog MCP"
 fi
 
-print -r -- "Setup complete, authenticate your MCPs if needed (see README)"
+print
+print -r -- "Setup complete"
 print -r -- "Then you can run 'codex-prime' to start the Codex agent"
