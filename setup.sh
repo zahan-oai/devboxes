@@ -67,6 +67,11 @@ if ! grep -qF "datadog" <<< "$mcps"; then
   print -r -- "TODO: codex mcp add datadog --url https://mcp.datadoghq.com/api/unstable/mcp-server/mcp" 
 fi
 
+if ! gh auth status | grep -qF "zahan-oai"; then
+  print -r -- "TODO: gh auth login"
+  print -r -- "Then run oai_gh --code {code} locally"
+fi
+
 print
 print -r -- "Setup complete"
 print -r -- "Then you can run 'codex-prime' to start the Codex agent"
