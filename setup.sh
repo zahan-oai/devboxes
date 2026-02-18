@@ -50,27 +50,21 @@ fi
 mcps=$(codex mcp list --json | jq -r '.[].name')
 if ! grep -qF "ologs" <<< "$mcps"; then
   codex mcp add ologs -- mcp-proxy --transport streamablehttp "https://obs-mcp-default-internal.gateway.obs-1.internal.api.openai.org/ologs/mcp"
-  print -r -- "Added OLogs MCP"
 fi
 if ! grep -qF "kepler" <<< "$mcps"; then
   codex mcp add kepler -- oaipkg run kepler_mcp.mcp.cli
-  print -r -- "Added Kepler MCP"
 fi
 if ! grep -qF "nexus" <<< "$mcps"; then
   codex mcp add nexus --url https://nexus.gateway.deploy-0.internal.api.openai.org/api/v1/mcp
-  print -r -- "Added Nexus MCP"
 fi
 if ! grep -qF "buildkite" <<< "$mcps"; then
-  codex mcp add buildkite --url https://mcp.buildkite.com/mcp
-  print -r -- "Added Buildkite MCP"
+  print -r -- "TODO: codex mcp add buildkite --url https://mcp.buildkite.com/mcp"
 fi
 if ! grep -qF "notion" <<< "$mcps"; then
-  codex mcp add notion --url https://mcp.notion.com/mcp
-  print -r -- "Added Notion MCP"
+  print -r -- "TODO: codex mcp add notion --url https://mcp.notion.com/mcp"
 fi
 if ! grep -qF "datadog" <<< "$mcps"; then
-  codex mcp add datadog --url https://mcp.datadoghq.com/api/unstable/mcp-server/mcp
-  print -r -- "Added Datadog MCP"
+  print -r -- "TODO: codex mcp add datadog --url https://mcp.datadoghq.com/api/unstable/mcp-server/mcp" 
 fi
 
 print
