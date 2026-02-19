@@ -102,3 +102,5 @@ If the Buildkite MCP needs reauthentication, stop and let me know.
 ## Github
 
 The `gh` CLI should be installed locally, use that to interact with Github. Primaily to work with PRs in this case: create, checkout, check status, view, etc.
+
+Note: when you create a PR, shell command substitution interprets backticks in the body text. Use a body file to avoid shell interpolation issues.
