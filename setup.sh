@@ -40,12 +40,6 @@ git config --add remote.origin.fetch 'refs/heads/master:refs/remotes/origin/mast
 git config --add remote.origin.fetch '+refs/heads/dev/zahan/*:refs/remotes/origin/dev/zahan/*'
 popd >/dev/null
 
-# set up MCP utils
-if ! command -v mcp-proxy >/dev/null 2>&1; then
-  echo "mcp-proxy not found, installing"
-  uv tool install mcp-proxy
-fi
-
 # set up MCPs
 mcps=$(codex mcp list --json | jq -r '.[].name')
 if ! grep -qF "ologs" <<< "$mcps"; then
