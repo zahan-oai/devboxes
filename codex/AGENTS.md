@@ -6,7 +6,7 @@ This file defines how automated agents (including Codex) must work in my ~/code 
 
 Before you start writing new code, make sure that you're on a clean commit, no changes in the working directory.
 
-Then, if you're making adding to work that's already on that branch, great. Otherwise, make a new branch from master following the naming convention I outline later.
+Then, switch to master and fetch upstream changes (fast-forward local master). Then, make a new branch from master following the naming convention I outline later.
 
 Once you're done with the changes, commit them with a message like "codex: {concise summary}". Then wait for me to tell you to push it upstream.
 
@@ -19,13 +19,9 @@ Make a short slug for {feature} that's likely to be unique
 
 I sometimes refer to origin/master as "upstream", because that's what that's basically what it is in the monorepo.
 
-### Fresh master
-
-If you're starting on new work, and need to make a new branch off master -- first fetch upstream changes and update the local master branch.
-
 ### Updating the Branch
 
-If I ask you to merge upstream changes, do that separate from any other feature changes I ask you to make on the branch. Generally I like a clean merge commit, then other commits for feature changes.
+If I ask you to merge upstream changes (from master typically), do that separate from any other feature changes I ask you to make on the branch. Generally I like a clean merge commit, then other commits for feature changes.
 
 ### Inheritance
 
