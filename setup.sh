@@ -52,7 +52,7 @@ if ! grep -qF "nexus" <<< "$mcps"; then
   codex mcp add nexus --url https://nexus.gateway.deploy-0.internal.api.openai.org/api/v1/mcp
 fi
 if ! grep -qF "deploy_manager" <<< "$mcps"; then
-  codex mcp add deploy_manager -- python $HOME/code/openai/lib/applied/connectors/openai_mcp_servers/scripts/mcp_identity_proxy.py deploy_manager=https://openai-mcp-servers.gateway.unified-0.internal.api.openai.org/internal/deploy_manager/mcp --env OPENAI_API_KEY=${OPENAI_API_KEY}
+  codex mcp add deploy_manager --env OPENAI_API_KEY=${OPENAI_API_KEY} -- python $HOME/code/openai/lib/applied/connectors/openai_mcp_servers/scripts/mcp_identity_proxy.py deploy_manager=https://openai-mcp-servers.gateway.unified-0.internal.api.openai.org/internal/deploy_manager/mcp
 fi
 if ! grep -qF "buildkite" <<< "$mcps"; then
   print -r -- "TODO: codex mcp add buildkite --url https://mcp.buildkite.com/mcp"
