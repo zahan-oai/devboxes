@@ -52,3 +52,59 @@ install = [
 repo = "https://github.com/zahan-oai/devboxes.git"
 target_dest = "code/devboxes"
 install_command = "setup.sh"
+
+[[secrets]]
+name = "openai_api_key"
+type = "env_var"
+env_var_name = "OPENAI_API_KEY"
+docstring = "Go to https://platform.openai.com/api-keys to get the key"
+src = [
+    {kind = "secrets_toml", path = "~/.config/applied-devbox/secrets.toml", key = "openai_api_key"},
+    {kind = "env", name = "OPENAI_API_KEY"},
+]
+
+[[secrets]]
+name = "openai_api_key_staging"
+type = "env_var"
+env_var_name = "OPENAI_API_KEY_STAGING"
+docstring = "Go to http://platform.api.openai.org/api-keys to get the key for staging."
+src = [
+    {kind = "secrets_toml", path = "~/.config/applied-devbox/secrets.toml", key = "openai_api_key_staging"},
+    {kind = "env", name = "OPENAI_API_KEY_STAGING"},
+]
+
+[[secrets]]
+name = "statsig_api_key"
+type = "env_var"
+env_var_name = "STATSIG_API_KEY"
+src = [
+    {kind = "secrets_toml", path = "~/.config/applied-devbox/secrets.toml", key = "statsig_api_key"},
+    {kind = "env", name = "STATSIG_API_KEY"},
+]
+
+[[secrets]]
+name = "statsig_api_key_staging"
+type = "env_var"
+env_var_name = "STATSIG_API_KEY_STAGING"
+src = [
+    {kind = "secrets_toml", path = "~/.config/applied-devbox/secrets.toml", key = "statsig_api_key_staging"},
+    {kind = "env", name = "STATSIG_API_KEY_STAGING"},
+]
+
+[[secrets]]
+name = "local_jwt_key"
+type = "env_var"
+env_var_name = "LOCAL_JWT_KEY"
+src = [
+    {kind = "secrets_toml", path = "~/.config/applied-devbox/secrets.toml", key = "local_jwt_key"},
+    {kind = "env", name = "LOCAL_JWT_KEY"},
+]
+
+[[secrets]]
+name = "prod_jwt_key"
+type = "env_var"
+env_var_name = "PROD_JWT_KEY"
+src = [
+    {kind = "secrets_toml", path = "~/.config/applied-devbox/secrets.toml", key = "prod_jwt_key"},
+    {kind = "env", name = "PROD_JWT_KEY"},
+]
