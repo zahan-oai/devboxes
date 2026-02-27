@@ -42,8 +42,13 @@ popd >/dev/null
 
 # set up MCPs
 mcps=$(codex mcp list --json | jq -r '.[].name')
-if ! grep -qF "ologs" <<< "$mcps"; then
-  codex mcp add ologs -- mcp-proxy --transport streamablehttp "https://obs-mcp-default-internal.gateway.obs-1.internal.api.openai.org/ologs/mcp"
+# replace ologs with observability
+if grep -qF "ologs" <<< "$mcps"; then
+  codex mcp remove ologs
+fi
+if ! grep -qF "observability" <<< "$mcps"; then
+  oaipkg install aw
+  aw mcp codex install
 fi
 if ! grep -qF "kepler" <<< "$mcps"; then
   codex mcp add kepler -- oaipkg run kepler_mcp.mcp.cli
@@ -72,3 +77,9 @@ fi
 print
 print -r -- "Setup complete"
 print -r -- "Then you can run 'codex-prime' to start the Codex agent"
+
+
+# Deprecated ologs custom MCP setup
+# if ! grep -qF "ologs" <<< "$mcps"; then
+#   codex mcp add ologs -- mcp-proxy --transport streamablehttp "https://obs-mcp-default-internal.gateway.obs-1.internal.api.openai.org/ologs/mcp"
+# fi
