@@ -38,6 +38,7 @@ pushd "$HOME/code/openai/" >/dev/null
 git config --unset-all remote.origin.fetch
 git config --add remote.origin.fetch 'refs/heads/master:refs/remotes/origin/master'
 git config --add remote.origin.fetch '+refs/heads/dev/zahan/*:refs/remotes/origin/dev/zahan/*'
+touch project/pre-commit/.disable-dev-branch-check
 popd >/dev/null
 
 # set up MCPs
