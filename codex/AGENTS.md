@@ -19,6 +19,10 @@ Make a short slug for {feature} that's likely to be unique
 
 I sometimes refer to origin/master as "upstream", because that's what that's basically what it is in the monorepo.
 
+## Repo operations
+
+Be patient when doing O(repo) operations, like git fetch or fast forward origin/master. There are O(2k) devs committing to this repo, so such operations take time. Generally they do complete (and don't time out).
+
 ### Updating the Branch
 
 If I ask you to merge upstream changes (from master typically), do that separate from any other feature changes I ask you to make on the branch. Generally I like a clean merge commit, then other commits for feature changes.
