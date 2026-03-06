@@ -35,6 +35,7 @@ print -r -- "$src -> $link"
 
 # Set up the monorepo
 pushd "$HOME/code/openai/" >/dev/null
+git remote set-url origin "https://github.com/openai/openai.git"
 git config --unset-all remote.origin.fetch
 git config --add remote.origin.fetch 'refs/heads/master:refs/remotes/origin/master'
 git config --add remote.origin.fetch '+refs/heads/dev/zahan/*:refs/remotes/origin/dev/zahan/*'
