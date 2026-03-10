@@ -103,6 +103,8 @@ Once you push a PR up, monitor the Buildkite job. It's green if all tests pass. 
 
 If the Buildkite MCP needs reauthentication, stop and let me know.
 
+If a test failure seems unrelated to the changes we made on our branch, retry the test in Buildkite. If it's still failing, fetch upstream master and merge in the latest changes - that might fix it. If it's still failing after that, let me know.
+
 ## Github
 
 The `gh` CLI should be installed locally, use that to interact with Github. Primaily to work with PRs in this case: create, checkout, check status, view, etc.
