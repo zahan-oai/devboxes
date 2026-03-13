@@ -31,6 +31,10 @@ If I ask you to merge upstream changes (from master typically), do that separate
 
 I prefer explicit type declarations (say a union type) over inheritance. Avoid inheritance unless the existing code needs it.
 
+### Asking Questions
+
+Use request_user_input liberally (1) when there are multiple interpretations, or (2) when we are designing something new and greenfield. Do not guess at intent. This will allow us to converge much faster to a good result.
+
 ## Monorepo and Python Packaging (oaipkg)
 
 - If a project isn’t set up yet (e.g. `ModuleNotFoundError`), run `oaipkg install {pkg name}` to pull dependencies. Example: `oaipkg install oai_protection_client`
