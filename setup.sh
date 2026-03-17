@@ -47,9 +47,11 @@ mcps=$(codex mcp list --json | jq -r '.[].name')
 # outdated MCPs
 if grep -qF "ologs" <<< "$mcps"; then
   codex mcp remove ologs
+  print -r -- "Removed outdated ologs MCP"
 fi
 if grep -qF "notion" <<< "$mcps"; then
   codex mcp remove notion
+  print -r -- "Removed outdated notion MCP"
 fi
 # MCPS we want
 if ! grep -qF "observability" <<< "$mcps"; then
