@@ -44,10 +44,14 @@ popd >/dev/null
 
 # set up MCPs
 mcps=$(codex mcp list --json | jq -r '.[].name')
-# replace ologs with observability
+# outdated MCPs
 if grep -qF "ologs" <<< "$mcps"; then
   codex mcp remove ologs
 fi
+if grep -qF "notion" <<< "$mcps"; then
+  codex mcp remove notion
+fi
+# MCPS we want
 if ! grep -qF "observability" <<< "$mcps"; then
   oaipkg install aw
   aw mcp codex install
@@ -63,9 +67,6 @@ if ! grep -qF "deploy_manager" <<< "$mcps"; then
 fi
 if ! grep -qF "buildkite" <<< "$mcps"; then
   print -r -- "TODO: codex mcp add buildkite --url https://mcp.buildkite.com/mcp"
-fi
-if ! grep -qF "notion" <<< "$mcps"; then
-  print -r -- "TODO: codex mcp add notion --url https://mcp.notion.com/mcp"
 fi
 if ! grep -qF "datadog" <<< "$mcps"; then
   print -r -- "TODO: codex mcp add datadog --url https://mcp.datadoghq.com/api/unstable/mcp-server/mcp" 
@@ -84,4 +85,7 @@ print -r -- "Then you can run 'codex-prime' to start the Codex agent"
 # Deprecated ologs custom MCP setup
 # if ! grep -qF "ologs" <<< "$mcps"; then
 #   codex mcp add ologs -- mcp-proxy --transport streamablehttp "https://obs-mcp-default-internal.gateway.obs-1.internal.api.openai.org/ologs/mcp"
+# fi
+# if ! grep -qF "notion" <<< "$mcps"; then
+#   print -r -- "TODO: codex mcp add notion --url https://mcp.notion.com/mcp"
 # fi
