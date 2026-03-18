@@ -59,6 +59,9 @@ function() {
     [[ -d "$gopath_bin" ]] && PATH="$PATH:$gopath_bin"
   fi
 
+  local_bin="$HOME/.local/bin"
+  [[ -d "$local_bin" && ":$PATH:" != *":$local_bin:"* ]] && export PATH="$PATH:$local_bin"
+
   # POWERLEVEL10K
   # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
   [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

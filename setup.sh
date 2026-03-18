@@ -46,7 +46,8 @@ install_ubi_if_needed() {
   if have cargo; then
     log "Installing ubi-cli with cargo"
     cargo install ubi-cli --root "$HOME/.local"
-    export PATH="$HOME/.local/bin:$PATH"
+    # Ensure ~/.local/bin is in the PATH for future commands in this script
+    [[ ":$PATH:" != *":$HOME/.local/bin:"* ]] && export PATH="$PATH:$HOME/.local/bin"
     return 0
   fi
 
@@ -67,8 +68,8 @@ install_git_spice() {
   else
     install_ubi_if_needed || true
     if have ubi; then
-      log "Installing gs via ubi"
-      ubi --project abhinav/git-spice --exe gs --in "$HOME/bin"
+      log "Installing git-spice via ubi"
+      ubi --project abhinav/git-spice --exe git-spice
     else
       warn "Unable to install git-spice automatically"
       return 1
