@@ -56,11 +56,9 @@ install_ubi_if_needed() {
 }
 
 install_git_spice() {
-  if have gs || have git-spice; then
+  if have git-spice; then
     return 0
   fi
-
-  mkdir -p "$HOME/bin"
 
   if have brew; then
     log "Installing git-spice with Homebrew"
@@ -69,7 +67,7 @@ install_git_spice() {
     install_ubi_if_needed || true
     if have ubi; then
       log "Installing git-spice via ubi"
-      ubi --project abhinav/git-spice --exe git-spice
+      ubi --project abhinav/git-spice --exe git-spice --in "$HOME/.local/bin"
     else
       warn "Unable to install git-spice automatically"
       return 1
