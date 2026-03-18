@@ -18,6 +18,7 @@ Make a short slug for {feature} that's likely to be unique
 ### Terms
 
 I sometimes refer to origin/master as "upstream", because that's what that's basically what it is in the monorepo.
+AVAS is a shortform for av-app-service, and TC for transceiver.
 
 ## Repo operations
 
@@ -118,3 +119,11 @@ If a test failure seems unrelated to the changes we made on our branch, retry th
 The `gh` CLI should be installed locally, use that to interact with Github. Primaily to work with PRs in this case: create, checkout, check status, view, etc.
 
 Note: when you create a PR, shell command substitution interprets backticks in the body text. Use a body file to avoid shell interpolation issues.
+
+## Observability
+
+When looking at ologs, a few things to remember
+- av-app-service tags things with user_id, but that can include the enterprise suffix. So use a prefix match to look for user logs.
+- transceiver has a column owner_id that logs the same user_id value as everyone else
+- request_id is a very standard column that lets you stitch a request across services (including inference engines)
+- there are a few variants of session_id and voice_session_id that can help with voice-specific services
