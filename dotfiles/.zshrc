@@ -73,3 +73,14 @@ function() {
   alias codex-prime="codex --dangerously-bypass-approvals-and-sandbox"
 
 }
+
+# >>> applied-devbox secrets >>>
+[ -f "$HOME/.config/applied-devbox/secrets.env" ] && . "$HOME/.config/applied-devbox/secrets.env"
+# <<< applied-devbox secrets <<<
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+# bun completions
+[ -s "/home/dev-user/.bun/_bun" ] && source "/home/dev-user/.bun/_bun"
