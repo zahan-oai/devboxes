@@ -99,3 +99,7 @@ src = [
     {kind = "secrets_toml", path = "~/.config/applied-devbox/secrets.toml", key = "prod_jwt_key"},
     {kind = "env", name = "PROD_JWT_KEY"},
 ]
+
+[[tools]]
+name = "install_skill"
+args = {skill_name = "git-spice"}

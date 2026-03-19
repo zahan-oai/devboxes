@@ -36,6 +36,10 @@ I prefer explicit type declarations (say a union type) over inheritance. Avoid i
 
 Use request_user_input liberally (1) when there are multiple interpretations, or (2) when we are designing something new and greenfield. Do not guess at intent. This will allow us to converge much faster to a good result.
 
+### Stacks
+
+Generally, most work starts from master (as outlined in the "Working Loop"). But if I ask you to, you can stack PRs on top of one another (with a branch on top of another feature branch). To help with this `git-spice` is installed, and there's a skill with the same name. The only deviation from the skill is that there's no `gs` alias, just use `git-spice`.
+
 ## Monorepo and Python Packaging (oaipkg)
 
 - If a project isn’t set up yet (e.g. `ModuleNotFoundError`), run `oaipkg install {pkg name}` to pull dependencies. Example: `oaipkg install oai_protection_client`
