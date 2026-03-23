@@ -3,6 +3,9 @@
 # Use this as a basic and customize as desired. Place the configuration at:
 # ~/.config/applied-devbox/config.toml (on your laptop).
 
+# Base config (that this inherits from)
+# https://sg.apps.openai.org/github.com/openai/openai@master/-/blob/api/devbox/applied-devbox-cli/applied_devbox_cli/config_base.toml
+
 ### Custom setup ###
 #
 # Specifies a custom_setup_script. It will be executed after clone and
@@ -103,3 +106,13 @@ src = [
 [[tools]]
 name = "install_skill"
 args = {skill_name = "git-spice"}
+
+[[secrets]]
+name = "dev_prod_cert"
+type = "file"
+dst = "~/.openai/spki/dev/prod/ca.crt"
+docstring = "Run `a spki request-dev-certificate --env prod` to regenerate"
+src = [
+    {kind = "cmd", name = "touch ~/.openai/spki/dev/prod/ca.crt"},
+    {kind = "file", path = "~/.openai/spki/dev/prod/ca.crt"},
+]
