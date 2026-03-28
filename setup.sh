@@ -123,7 +123,11 @@ configure_codex_mcps() {
     codex mcp add nexus --url https://nexus.gateway.deploy-0.internal.api.openai.org/api/v1/mcp
   fi
   if ! grep -qF "deploy_manager" <<< "$mcps"; then
-    codex mcp add deploy_manager --env OPENAI_API_KEY=${OPENAI_API_KEY} -- python $HOME/code/openai/lib/applied/connectors/openai_mcp_servers/scripts/mcp_identity_proxy.py deploy_manager=https://openai-mcp-servers.gateway.unified-0.internal.api.openai.org/internal/deploy_manager/mcp
+    if [[ -z "${OPENAI_API_KEY:-}" ]]; then
+      warn "OPENAI_API_KEY is not set; skipping deploy_manager MCP setup"
+    else
+      codex mcp add deploy_manager --env "OPENAI_API_KEY=${OPENAI_API_KEY}" -- python "$HOME/code/openai/lib/applied/connectors/openai_mcp_servers/scripts/mcp_identity_proxy.py" "deploy_manager=https://openai-mcp-servers.gateway.unified-0.internal.api.openai.org/internal/deploy_manager/mcp"
+    fi
   fi
   if ! grep -qF "buildkite" <<< "$mcps"; then
     log "TODO: codex mcp add buildkite --url https://mcp.buildkite.com/mcp"
