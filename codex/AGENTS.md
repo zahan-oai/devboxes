@@ -4,9 +4,9 @@ This file defines how automated agents (including Codex) must work in my ~/code 
 
 ## Working loop
 
-Before you start writing new code, make sure that you're on a clean commit, no changes in the working directory.
+Before you start writing new code, prefer to begin from a clean commit with no changes in the working directory. If there are existing changes, check with me first about what to do.
 
-Then, switch to master and fetch upstream changes (fast-forward local master). Then, make a new branch from master following the naming convention I outline later.
+When starting new feature work from a clean state, switch to master and fetch upstream changes (fast-forward local master). Then, make a new branch from master following the naming convention I outline later.
 
 Once you're done with the changes, commit them with a message like "codex: {concise summary}". Then wait for me to tell you to push it upstream.
 
@@ -34,7 +34,10 @@ I prefer explicit type declarations (say a union type) over inheritance. Avoid i
 
 ### Asking Questions
 
-Use request_user_input liberally (1) when there are multiple interpretations, or (2) when we are designing something new and greenfield. Do not guess at intent. This will allow us to converge much faster to a good result.
+I prefer that you ask me questions to clarify intent. Especially if:
+- there are multiple interpretations
+- we are designing something new and greenfield. 
+This will allow us to converge much faster to a good result.
 
 ### Stacks
 
@@ -120,9 +123,7 @@ If a test failure seems unrelated to the changes we made on our branch, retry th
 
 ## Github
 
-The `gh` CLI should be installed locally, use that to interact with Github. Primaily to work with PRs in this case: create, checkout, check status, view, etc.
-
-Note: when you create a PR, shell command substitution interprets backticks in the body text. Use a body file to avoid shell interpolation issues.
+If you create a PR via `gh`, shell command substitution interprets backticks in the body text. Use a body file to avoid shell interpolation issues.
 
 ## Observability
 
