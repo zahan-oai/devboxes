@@ -20,8 +20,8 @@ for file in "/home/dev-user/.openai/shrc"/*; do
     source "$file"
 done
 
-. "$HOME/.local/bin/env"
-. "$HOME/.cargo/env"
+[ -f "$HOME/.local/bin/env" ] && source "$HOME/.local/bin/env"
+[ -f "$HOME/.cargo/env" ] && source "$HOME/.cargo/env"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
