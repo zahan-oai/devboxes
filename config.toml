@@ -108,11 +108,31 @@ name = "install_skill"
 args = {skill_name = "git-spice"}
 
 [[secrets]]
-name = "dev_prod_cert"
+name = "dev_prod_ca_crt"
 type = "file"
 dst = "~/.openai/spki/dev/prod/ca.crt"
 docstring = "Run `a spki request-dev-certificate --env prod` to regenerate"
 src = [
     {kind = "cmd", name = "touch ~/.openai/spki/dev/prod/ca.crt"},
     {kind = "file", path = "~/.openai/spki/dev/prod/ca.crt"},
+]
+
+[[secrets]]
+name = "dev_prod_tls_crt"
+type = "file"
+dst = "~/.openai/spki/dev/prod/tls.crt"
+docstring = "Run `a spki request-dev-certificate --env prod` to regenerate"
+src = [
+    {kind = "cmd", name = "touch ~/.openai/spki/dev/prod/tls.crt"},
+    {kind = "file", path = "~/.openai/spki/dev/prod/tls.crt"},
+]
+
+[[secrets]]
+name = "dev_prod_tls_key"
+type = "file"
+dst = "~/.openai/spki/dev/prod/tls.key"
+docstring = "Run `a spki request-dev-certificate --env prod` to regenerate"
+src = [
+    {kind = "cmd", name = "touch ~/.openai/spki/dev/prod/tls.key"},
+    {kind = "file", path = "~/.openai/spki/dev/prod/tls.key"},
 ]
