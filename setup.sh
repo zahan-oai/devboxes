@@ -159,14 +159,14 @@ Setup complete.
 
 Manual follow-ups:
   1. Restart your shell or run: exec zsh -l
-  2. Authenticate GitHub if needed: gh auth login
-  3. Authenticate Codex if needed: codex login
-  4. Refresh Azure/devbox auth if needed: applied devbox az-login
+  2. Refresh Azure/devbox auth if needed: applied devbox az-login
+  3. Add any codex MCPs that need manual auth, see script output ^
 
 Notes:
   - ~/.codex/config.toml is not managed here; applied devbox setup already syncs it and patches OAuth callback fields.
 
 Run 'codex-prime' to start the Codex agent!
+
 EOF
 }
 
