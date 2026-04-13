@@ -75,9 +75,7 @@ Use `--files` to limit it to the ones you changed, or `--from-ref` and `--to-ref
 
 ## Tests
 
-Please run tests that seem relevant to your code changes, that verification builds confidence in them. Keep in mind the python packaging note above for `pytest`, you might need to install deps. It's normal for this to take a long time (minutes), be patient.
-
-While a direct `pytest` invocation is often appropriate, you can also invoke all the tests in a given module (which is how they're run in CI).
+Please run tests that seem relevant to the code changes. Keep in mind the python packaging note above for `pytest`, you might need to install dependencies. Be patient as it's normal for these bazel, packaging, installation steps to take a long time in the monorepo. But I want completed test runs which provide signal.
 
 ```zsh
 applied test --test-spec {module name} --backend local
