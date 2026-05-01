@@ -77,15 +77,6 @@ src = [
 ]
 
 [[secrets]]
-name = "statsig_api_key"
-type = "env_var"
-env_var_name = "STATSIG_API_KEY"
-src = [
-    {kind = "secrets_toml", path = "~/.config/applied-devbox/secrets.toml", key = "statsig_api_key"},
-    {kind = "env", name = "STATSIG_API_KEY"},
-]
-
-[[secrets]]
 name = "local_jwt_key"
 type = "env_var"
 env_var_name = "LOCAL_JWT_KEY"
